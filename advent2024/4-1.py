@@ -32,25 +32,21 @@ def _check(grid,i,j,word):
 		temp = grid[i][j] + grid[i+1][j+1] + grid[i+2][j+2] + grid[i+3][j+3]
 		if temp == word:
 			count+=1
-
 	#S
 	if SOUTH:
 		temp = grid[i][j] + grid[i+1][j] + grid[i+2][j] + grid[i+3][j]
 		if temp == word:
 			count+=1
-
 	#SW
 	if SOUTH and WEST:
 		temp = grid[i][j] + grid[i+1][j-1] + grid[i+2][j-2] + grid[i+3][j-3]
 		if temp == word:
 			count+=1
-
 	#W
 	if WEST:
 		temp = grid[i][j] + grid[i][j-1] + grid[i][j-2] + grid[i][j-3]
 		if temp == word:
 			count+=1
-
 	#NW
 	if NORTH and WEST:
 		temp = grid[i][j] + grid[i-1][j-1] + grid[i-2][j-2] + grid[i-3][j-3]
@@ -70,7 +66,7 @@ for l in lines:
 count = 0
 for i in range (len(grid)):
 	for j in range(len(grid[i])):
-		if grid[i][j] == 'X':
+		if grid[i][j] == 'X': #semi-optimization 
 			count += _check(grid,i,j,"XMAS")
 
 print(count)
