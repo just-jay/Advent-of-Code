@@ -3,29 +3,23 @@ import re
 f = open("input3","r")
 
 line = f.read().strip()
-arr = line.split("do()") 
 
+do = True
+count = 0
 
-##############################
-##     DOES NOT WORK YET    ##
-##############################
-newarr = []
-for e in arr:
-	newarr.append(re.sub("don't().*$","",e)) 
+for i in range(len(line)):
 
-#rest is essentially the same as part1
-pairs = []
-for e in newarr:
-	print(e)
-	pairs.append(re.findall("mul\((\d+),(\d+)\)",e))
+	currLine = line[i:]
 
-total = 0
+	if re.match("don't\(\)", currLine):
+		do = False
+	elif re.match("do\(\)", currLine):
+		do = True
 
-for e in pairs:
-	if e != []:
-		A = int(e[0][0])
-		B = int(e[0][1])
-		total += (A*B)
-		print(A,B, A*B)
+	if do:
+		# print(currLine)
+		elem = re.match("mul\((\d+),(\d+)\)",currLine)
+		if elem:
+			count += (int(elem.group(1))*int(elem.group(2)))
 
-print(total)
+print(count)
