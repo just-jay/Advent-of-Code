@@ -1,0 +1,66 @@
+...
+.X.
+...
+
+
+X -> 4		XX -> 4		XXX -> 4
+
+XX			X 			 X
+XX -> 4		XX -> 6		XXX -> 8
+
+
+ X
+XXX -> 12
+ X
+
+X
+XX
+ X -> 8 
+
+XXX
+X X -> 8 
+XXX 
+
+for each node - count the number of free right angles
+
+//////
+//surround grid in dots, it will help with the algorithm / boundary cases listed below
+cases for each of the 4 "corners" - can also use rotational symetry for all 4 sides?
+- 0 match -> 1
+- 1 match 
+	- on corner -> 1
+	- else on edge -> 0
+- 2 match 
+	- on edges -> 1
+	- else edge and corner(diag) -> 0
+- 3 match -> 0
+//////
+
+
+]
+0n
+..
+X.
+
+1n
+X.
+X.
+
+1n
+.X
+X.
+
+2n
+XX
+X.
+
+2n
+X.
+XX
+
+3n
+XX
+XX
+
+
+
