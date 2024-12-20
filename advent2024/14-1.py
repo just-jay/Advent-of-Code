@@ -17,7 +17,6 @@ def _updateGrid(grid):
 					e = robots.pop()
 					newX = x + e[0]
 					newY = y + e[1]
-					# print(y,x,newY,newX,len(grid))
 
 					if newX < 0:
 						newX = len(grid[y]) +  newX
@@ -31,12 +30,9 @@ def _updateGrid(grid):
 					if newY >= len(grid):
 						newY = newY - len(grid)
 
-					# print(y,x,newY,newX,len(grid))
-
 					newGrid[newY][newX].append(e)
 
 	return newGrid
-
 
 
 lines = open("input14").readlines()
@@ -65,36 +61,9 @@ for l in lines:
 
 	grid[pX][pY].append((vX,vY))
 
-# for l in grid:
-# 	print(l)
-# print("\n")
-
 currGrid = grid
-for i in range(6773):
-	print(i)
+for i in range(100):
 	currGrid = _updateGrid(currGrid)
-	
-	newGrid = []
-	pr = False
-	for l in currGrid:
-		pr = False
-		currStr = ""
-		for e in l:
-			if e == []:
-				currStr += "."
-			else:
-				currStr += "1"
-		newGrid += [currStr]
-		if "1111111" in currStr:
-			pr = True
-	
-	if i > 6769:
-		for l in newGrid:
-			print(l)
-		print("\n")
-		time.sleep(.4)
-
-
 
 #count the grid
 '''
