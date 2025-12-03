@@ -11,20 +11,15 @@ class Solution():
 		return largest
 
 	def joltageTwo(self,line):
-
-		curr = line[:12]
+		largestString = line[:12] #currentLargest 
 		for i in range(12,len(line)):
-			
-
-			
-		#idea at each number we either take or dont take
-		#make all 12 possible values that could exist if we take 
-		#be greedy? Take the largest one adn remove the numberX 
-
-
-		return 0
-
-
+			currElement = line[i]
+			for i in range(12):
+				temp = largestString[0:i] + largestString[i+1:12] + currElement
+				if int(temp) > int(largestString):
+					largestString = temp
+					break
+		return int(largestString)
 
 	def part1(self):
 		with open("input3.txt") as f:

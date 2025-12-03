@@ -55,6 +55,28 @@ next number -  1 do we take it?
 
 few more cases 
 - if an option to swap a number is equal, what do we do 
-	- 
+	- I think we can ignore it 
+	consider 987654321111111
+
+	987654321111 is the 12 bit number
+
+	if we want to try adding 1, the resulting number is the same if we did try to swap 2 ones - and no numbers or spaces between can be filled that would affect the sizing
 
 - if there are no options to swap a number that are greater than what we have, iignore it 
+
+
+Algorithm 
+
+'''
+start with a string of the first twelse numbers
+set the current largest to this
+
+go through the remaining numbers 1 by 1
+for each number
+	go through the current largeest strign from left to right, 1 by 1 
+		try to remove teh ith integer from the current largest and add the remaining number we're iterating on at the end
+		if the resulkting number is larger than the current largest, make the swap 
+		update current largest to this new number
+		continue - any swaps down the line would not be larger 
+return !
+		'''
