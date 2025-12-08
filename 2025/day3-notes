@@ -1,0 +1,82 @@
+818181911112111
+
+
+181911112111
+
+consider taking 8 in front -
+when do we take 8 
+we take it when we can remove something worse - needs to be the _most_ worst I think 
+or maybe we be greedy and take what would optimzie the largest growth 
+	IE the closets number to the front that is worse than what we're adding? 
+
+
+234234234234278
+
+we have 
+234234234234
+
+do we take a 2? 
+try first variant -> _342342342342
+Its bigger so yes!
+
+next - do we take a 7? 
+try first variant -> _423423423427 
+its bigger so yes!
+
+last - do we take a 8? 
+try first varaint -> _234234234278
+its NOT bigger. 
+Check next variant -> 4_34234234278
+its bigger! take it!!!! 
+
+we're done! And we have the largest now 
+
+
+
+
+
+another example
+
+full : 818181911112111
+take first 12 digits: 818181911112
+
+next number - 1 - do we take it? 
+try removing numbers starting at the front
+- 181819111121 X too small
+- 881819111121 Y bigger, we take 
+
+
+current: 881819111121
+next number -  1 do we take it? 
+- _818191111211 X too small
+- 8_1819111121 X too small
+- 88_8191111211 Y larger! we add
+
+
+few more cases 
+- if an option to swap a number is equal, what do we do 
+	- I think we can ignore it 
+	consider 987654321111111
+
+	987654321111 is the 12 bit number
+
+	if we want to try adding 1, the resulting number is the same if we did try to swap 2 ones - and no numbers or spaces between can be filled that would affect the sizing
+
+- if there are no options to swap a number that are greater than what we have, iignore it 
+
+
+Algorithm 
+
+'''
+start with a string of the first twelse numbers
+set the current largest to this
+
+go through the remaining numbers 1 by 1
+for each number
+	go through the current largeest strign from left to right, 1 by 1 
+		try to remove teh ith integer from the current largest and add the remaining number we're iterating on at the end
+		if the resulkting number is larger than the current largest, make the swap 
+		update current largest to this new number
+		continue - any swaps down the line would not be larger 
+return !
+		'''
