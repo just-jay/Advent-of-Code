@@ -73,6 +73,7 @@ class Solution():
 					row += [i]
 				grid.append(row)
 
+		#new part - while loop. Every time we can remove at least 1 roll, check the grid again 
 		loopAgain = True
 		while loopAgain:
 			adjacencies = 0
